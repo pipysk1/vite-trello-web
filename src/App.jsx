@@ -1,11 +1,10 @@
-
-import Button from '@mui/material/Button'
+import Board from './pages/Boards/_id'
 
 function App() {
-
   return (
     <>
-      <Button variant="contained">Hello world</Button>
+      {/* react router dom boader /board id */}
+      <Board />
     </>
   )
 }
