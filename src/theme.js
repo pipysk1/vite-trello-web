@@ -4,8 +4,8 @@ import { cyan, deepOrange, orange, teal } from '@mui/material/colors'
 // Create a theme instance.
 const theme = extendTheme({
   trello: {
-    appHightBar: '48px',
-    appHightBoardBar: '58px'
+    appHightBar: '58px',
+    appHightBoardBar: '60px'
   },
   colorSchemes: {
     light: {
@@ -16,11 +16,54 @@ const theme = extendTheme({
     },
     dark: {
       palette: {
-        primary: cyan,
+        primary: {
+          main: '#778899'
+        },
         secondary: orange
       }
     }
-  }
+  },
+  components: {
+    MuiButton: {
+      styleOverrides: {
+        root: {
+          textTransform: 'none'
+        }
+      }
+    },
+    MuiInputLabel: {
+      styleOverrides: {
+        root: ({ theme }) => {
+          return {
+            color: theme.palette.primary.main,
+            fontSize: '0.875rem'
+          }
+        }
+      }
+    },
+    MuiOutlinedInput: {
+      styleOverrides: {
+        root: ({ theme }) => {
+          return {
+            color: theme.palette.primary.main,
+            fontSize: '0.875rem',
+            '.MuiOutlinedInput-notchedOutline': {
+              borderColor: theme.palette.primary.light
+            },
+            '&:hover': {
+              '.MuiOutlinedInput-notchedOutline': {
+                borderColor: theme.palette.primary.light
+              }
+            },
+            '& fieldset': {
+              borderWidth: '1px !important'
+            }
+          }
+        }
+      }
+    }
+  },
+
 })
 
 export default theme
